@@ -45,7 +45,7 @@ function printName(name: string): void {
 printName('qinney') ;
 
 /**
- * Null 和 Undefined§
+ * Null 和 Undefined
  *
  * 在 TypeScript 中，可以使用 null 和 undefined 来定义这两个原始数据类型
  */
