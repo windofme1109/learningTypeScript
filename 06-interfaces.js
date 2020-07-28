@@ -56,8 +56,11 @@ var w1 = {
 // error TS2540: Cannot assign to 'id' because it is a read-only property.
 // w1.id = 18942 ;
 // 注意，只读的约束存在于第一次给对象赋值的时候，而不是第一次给只读属性赋值的时候：
-var w2 = {
-    name: '李四',
-    gender: 'female'
-};
-w2.id = 147852;
+// 创建变量时，如果没有给只读属性id赋值，那么会报错：
+// error TS2741: Property 'id' is missing in type '{ name: string; gender: string; }' but required in type 'Workers'.
+// let w2: Workers = {
+//     name: '李四',
+//     gender: 'female'
+// }
+// error TS2540: Cannot assign to 'id' because it is a read-only property.
+// w2.id = 147852 ;
