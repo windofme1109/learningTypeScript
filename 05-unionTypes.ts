@@ -9,6 +9,8 @@ let myLuckyNumber: string|number ;
 myLuckyNumber = 'six' ;
 myLuckyNumber = 6 ;
 console.log(myLuckyNumber) ;
+
+// 赋值为其他类型会报错
 // error TS2322: Type 'true' is not assignable to type 'string | number'.
 // myLuckyNumber = true ;
 
