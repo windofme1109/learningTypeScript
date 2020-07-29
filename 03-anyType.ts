@@ -1,10 +1,11 @@
 /**
  * 任意数据类型
- * 任意值（Any）用来表示允许赋值为任意类型
+ * 任意值（Any）用来表示允许赋值为任意类型，包括number，string，boolean，undefined等
  */
 
 // 如果是 any 类型，则允许被赋值为任意类型
 let myFavouriteNumber: any = 7 ;
+
 myFavouriteNumber = 'seven' ;
 
 console.log(myFavouriteNumber) ;
