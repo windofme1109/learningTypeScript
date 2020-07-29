@@ -157,6 +157,7 @@ interface Workers {
     [propName: string]: any
 }
 
+// 在定义时，给只读属性赋值
 let w1: Workers = {
     id: 10578,
     name: '张三',

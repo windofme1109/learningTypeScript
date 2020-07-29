@@ -47,6 +47,7 @@ var orange = {
     series: 188
 };
 console.log(orange.series);
+// 在定义时，给只读属性赋值
 var w1 = {
     id: 10578,
     name: '张三',
