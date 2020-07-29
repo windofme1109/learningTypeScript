@@ -38,5 +38,5 @@ function sub() {
     var args = arguments;
 }
 // 我们也可以将数组中元素的类型定义为any，表示允许出现任何类型
-var arr4 = [1, '2', 3, { name: "apple" }];
+var arr4 = [1, '2', 3, { name: "apple" }, true];
 console.log(arr4[3]);

@@ -57,5 +57,5 @@ function sub(): void {
 }
 
 // 我们也可以将数组中元素的类型定义为any，表示允许出现任何类型
-let arr4: any[] = [1, '2', 3, {name: "apple"}] ;
+let arr4: any[] = [1, '2', 3, {name: "apple"}, true] ;
 console.log(arr4[3]) ;
