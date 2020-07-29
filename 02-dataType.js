@@ -5,11 +5,11 @@
  */
 // 1. 基本数据类型
 /**
- * 布尔值
+ * 布尔值 —— boolean
  */
 var isDone = false;
 /**
- * 数值
+ * 数值 —— number
  */
 var decLiteral = 10;
 // 十六进制
@@ -22,7 +22,7 @@ var octalLiteral = 1838;
 var notANumber = NaN;
 var infinityNumber = Infinity;
 /**
- * 字符串
+ * 字符串 —— string
  */
 var myName = 'Tom';
 var myAge = 25;
@@ -37,7 +37,7 @@ function printName(name) {
 }
 printName('qinney');
 /**
- * Null 和 Undefined§
+ * Null 和 Undefined
  *
  * 在 TypeScript 中，可以使用 null 和 undefined 来定义这两个原始数据类型
  */

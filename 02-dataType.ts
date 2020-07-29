@@ -6,13 +6,13 @@
 
 // 1. 基本数据类型
 /**
- * 布尔值
+ * 布尔值 —— boolean
  */
 
 let isDone: boolean = false ;
 
 /**
- * 数值
+ * 数值 —— number
  */
 let decLiteral: number = 10 ;
 // 十六进制
@@ -26,7 +26,7 @@ let notANumber: number = NaN ;
 let infinityNumber: number = Infinity ;
 
 /**
- * 字符串
+ * 字符串 —— string
  */
 
 let myName: string = 'Tom' ;
