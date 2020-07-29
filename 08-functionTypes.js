@@ -160,25 +160,20 @@ function reverseTSVersion(content) {
 }
 console.log(reverseTSVersion(345));
 console.log(reverseTSVersion('apple'));
-// 使用联合类型定义不够精确，理想情况是，输入数字返回的就是数字，输入字符串，返回的就是字符串
-// 可以使用重载定义多个 reverse 的函数类型
 function reverse(content) {
-    return Number(content.toString().split('').reverse().join(''));
+    if (typeof content === 'number') {
+        return Number(content.toString().split('').reverse().join(''));
+    }
+    else if (typeof content === 'string') {
+        return content.split('').reverse().join('');
+    }
+    else {
+        return undefined;
+    }
 }
-function reverse(content) {
-    return content.split('').reverse().join('');
-}
-// function reverse(content: number|string):number|string {
-//     if (typeof content === 'number') {
-//         return Number(content.toString().split('').reverse().join('')) ;
-//     } else if (typeof content === 'string') {
-//         return content.split('').reverse().join('') ;
-//     } else {
-//         return undefined ;
-//     }
-// }
 // 我们重复定义了多次函数 reverse，前几次都是函数定义，最后一次是函数实现
 // TypeScript会从最前面的函数定义开始匹配，如果有多个函数具有包含关系，这里的包含指的是重载，应该把精确的定义写在前面
 // 也就是说，TypeScript中，主要是函数同名，但是参数和返回值的类型不同，需要精确定义输入类型和输出类型，最后实现
 console.log(reverse('number'));
 console.log(reverse(1234));
+console.log(reverse('cccddd'));

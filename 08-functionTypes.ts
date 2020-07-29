@@ -220,3 +220,4 @@ function reverse(content: number|string):number|string {
 // 也就是说，TypeScript中，主要是函数同名，但是参数和返回值的类型不同，需要精确定义输入类型和输出类型，最后实现
 console.log(reverse('number')) ;
 console.log(reverse(1234)) ;
+console.log(reverse('cccddd')) ;
