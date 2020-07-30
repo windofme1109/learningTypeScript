@@ -161,5 +161,6 @@ function isApiError(error: Error) {
 /**
  *
  * 将any类型断言为一个具体类型
+ * 有一些代码中，会返回any类型，如果我们将any类型断言为一个精确的类型，有助于我们后续的操作
  *
  */
