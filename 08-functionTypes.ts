@@ -84,7 +84,7 @@ console.log(jack) ;
 
 /**
  *
- * 参数
+ * 默认参数
  * ES6中，可以为参数设置默认值，TypeScript 会将添加了默认值的参数识别为可选参数：
  *
  */
@@ -191,7 +191,7 @@ console.log(reverseTSVersion('apple')) ;
  *
  * 注意：typescript 的函数重载仅仅是类型重载，不是真正意义上的函数重载。
  * 并且真正 implementation 的那个函数需要覆盖你所有类型重载的函数的签名。
- *也就是说，下面这种方式时不行的：
+ *也就是说，下面这种方式是不行的：
  *  error TS2393: Duplicate function implementation.
  * function reverse(content: number): number {
  *    return Number(content.toString().split('').reverse().join('')) ;
