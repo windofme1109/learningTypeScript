@@ -5,7 +5,7 @@
 
 // 联合类型使用|分隔
 // 允许myLuckyNumber只能是string和number两种类型之一，不能为其他类型
-let myLuckyNumber: string|number ;
+let myLuckyNumber: string | number ;
 myLuckyNumber = 'six' ;
 myLuckyNumber = 6 ;
 console.log(myLuckyNumber) ;
@@ -27,7 +27,7 @@ console.log(myLuckyNumber) ;
 //     return something.length ;
 // }
 
-function getString(something: string|number): string {
+function getString(something: string | number): string {
     // toString()是string和number类型共有的方法，所以不会报错
     return something.toString() ;
 }
@@ -36,7 +36,7 @@ console.log(getString('abcdefg')) ;
 console.log(getString(135789)) ;
 
 // 联合类型的变量在被赋值的时候，会根据类型推论的规则推断出一个类型
-let mln: string|number ;
+let mln: string | number ;
 mln = 'seven' ;
 console.log(mln.length) ;
 mln = 7 ;
