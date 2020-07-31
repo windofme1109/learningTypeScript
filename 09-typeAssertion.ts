@@ -164,3 +164,104 @@ function isApiError(error: Error) {
  * 有一些代码中，会返回any类型，如果我们将any类型断言为一个精确的类型，有助于我们后续的操作
  *
  */
+
+/**
+ *
+ * 断言类型的限制
+ * 笼统的说，就是A能兼容B，那么 A 能够被断言为 B，B 也能被断言为 A。
+ * 如果B能兼容A，那么 B 能够被断言为 A，A 也能被断言为 B。
+ * 所谓的兼容，我的理解是，谁包含谁
+ */
+
+// interface Animal {
+//     name: string
+// }
+//
+// interface Cat {
+//     name: string
+//     run(): void
+//
+// }
+//
+// let tom: Cat = {
+//     name: 'Tom',
+//     run: () => {
+//         console.log('run') ;
+//     }
+// }
+// let animal: Animal = tom ;
+/**
+ * TypeScript时结构类型系统，类型之间的比较只会比较它们最终的结构，而忽略定义时的关系
+ * Cat 包含了 Animal 中的所有属性，除此之外，它还有一个额外的方法 run。
+ * TypeScript 并不关心 Cat 和 Animal 之间定义时是什么关系，
+ * 而只会看它们最终的结构有什么关系——所以它与 Cat extends Animal 是等价的
+ * 在继承的情况下，子类的实例可以赋值给类型为父类的变量
+ * 所以上面的tom可以赋值给类型为Animal的变量
+ */
+// interface Animal {
+//     name: string
+// }
+//
+// interface Cat extends Animal{
+//     run(): void
+// }
+
+
+//当 Animal 兼容 Cat 时，它们就可以互相进行类型断言了
+// interface Animal {
+//     name: string
+// }
+//
+// interface Cat {
+//     name: string
+//     run(): void
+//
+// }
+//
+// function testAnimal(animal: Animal) {
+//
+//     return (animal as Cat) ;
+// }
+//
+// function testCat(cat: Cat) {
+//
+//     return (cat as Animal) ;
+// }
+
+/**
+ *
+ * 类型声明与类型断言的区别
+ * Animal兼容Cat（相当于Animal是父类，Cat是子类）
+ */
+interface Animal {
+    name: string
+}
+
+interface Cat {
+    name: string
+    run(): void
+}
+
+let tom: Cat = {
+    name: 'tom',
+    run: () => {
+        console.log('run') ;
+    }
+}
+// 类型声明
+// 可以将tom赋值给animal，因为Animal兼容Cat
+let animal: Animal = tom ;
+
+let anl: Animal = {
+    name: 'Jack'
+}
+
+// anl可以被断言成Cat类型，也是因为Animal兼容Cat
+let jack = anl as Cat ;
+let animal2 = tom as Animal ;
+
+// 断言可以，但是类型声明就报错，想要将animal类型的anl赋值给类型为Cat的jack，Cat必须兼容Animal，也就是说，Cat有的，Animal都得有
+// 但是，Animal不具备这样的特性，所以无法赋值给jack
+// 换一种说法，Animal 可以看作是 Cat 的父类，当然不能将父类的实例赋值给类型为子类的变量。
+// // error TS2741: Property 'run' is missing in type 'Animal' but required in type 'Cat'.
+// let jack: Cat = anl ;
