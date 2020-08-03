@@ -135,3 +135,25 @@ console.log(apple[0], apple[1]);
 // error TS2540: Cannot assign to '0' because it is a read-only property.
 // apple[0] = 'banana';
 
+/**
+ * 越界元素
+ * 越界元素指的是，超出了元组定义时的数量的元素，比如说，定义元素有两个元素，现在要添加第三个元素，这第三个元素就是越界元素
+ * 添加越界元素时，元素类型会被限制为元组中每个类型的联合类型
+ */
+let student: [string, number];
+student = ['tom', 114];
+// 可以使用push()方法添加越界元素
+student.push('pku');
+// [ 'tom', 114, 'pku' ]
+console.log(student);
+
+// 可以使用pop()方法，移除元组的最后一个元素
+student.pop();
+console.log(student);
+
+student.pop();
+console.log(student);
+// 当添加越界元素时，元素类型会被限制为元组中每个类型的联合类型，在这个例子中，必须是：'string | number'
+// Argument of type 'true' is not assignable to parameter of type 'string | number'.
+// student.push(true);
+
