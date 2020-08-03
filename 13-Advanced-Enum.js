@@ -114,7 +114,8 @@ console.log(Colors[4] === 'Blue'); // true
 ;
 var d = [0 /* Up */, 1 /* Down */, 2 /* Left */, 3 /* Right */];
 // 常数枚举与普通枚举的区别是，它会在编译阶段被删除，并且不能包含计算成员
-// var directions = [0 /* Up */, 1 /* Down */, 2 /* Left */, 3 /* Right */];
+// 上面语句的编译结果如下所示：
+// var d = [0 /* Up */, 1 /* Down */, 2 /* Left */, 3 /* Right */];
 // 常数枚举只能通过字符串的方式进行访问
 console.log(0 /* 'Up' */);
 ;
@@ -122,3 +123,4 @@ console.log(0 /* 'Up' */);
 var dir3 = [0 /* Up */, 1 /* Down */, 2 /* Left */, 3 /* Right */];
 // 上面的编译结果是：
 // var dir3 = [0 /* Up */, 1 /* Down */, 2 /* Left */, 3 /* Right */];
+console.log(dir3[0]);

@@ -123,3 +123,5 @@ declare const enum Directions3 {
 let dir3 = [Directions3.Up, Directions3.Down, Directions3.Left, Directions3.Right];
 // 上面的编译结果是：
 // var dir3 = [0 /* Up */, 1 /* Down */, 2 /* Left */, 3 /* Right */];
+// 0
+console.log(dir3[0]) ;
