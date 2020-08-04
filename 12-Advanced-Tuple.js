@@ -109,6 +109,7 @@ student = ['tom', 114];
 student.push('pku');
 // [ 'tom', 114, 'pku' ]
 console.log(student);
+// 可以使用pop()方法，移除元组的最后一个元素
 student.pop();
 console.log(student);
 student.pop();
