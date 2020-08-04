@@ -108,7 +108,7 @@ console.log(Directions['Up']) ;
  */
 declare enum Directions2 {Up, Down, Left, Right};
 // let dir = [Directions2.Up, Directions2.Down, Directions2.Left, Directions2.Right];
-//declare 定义的类型只会用于编译时的检查，编译结果中会被删除
+// declare 定义的类型只会用于编译时的检查，编译结果中会被删除
 // 上面的编译结果是：
 // var dir = [Directions2.Up, Directions2.Down, Directions2.Left, Directions2.Right];
 // 外部枚举与声明语句一样，常出现在声明文件中
