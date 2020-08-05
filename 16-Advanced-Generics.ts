@@ -153,6 +153,7 @@ console.log(car);
 class GenericsNumber<T> {
     zeroValue: T;
     // 对类的函数进行约束
+    // 这里要注意，=>不是箭头函数的意思，而用来表示函数的定义，=>左边是输入类型，需要用括号括起来，右边是输出类型
     add: (x: T, y: T) => T;
 }
 
