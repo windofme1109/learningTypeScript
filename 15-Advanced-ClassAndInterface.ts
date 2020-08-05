@@ -104,3 +104,103 @@ interface Point3D extends Point{
 // 使用接口Point3D来约束对象的形状
 let point3d: Point3D = {x: 1, y: 2, z: 3};
 console.log(point3d);
+
+// 为什么接口可以继承类呢？
+// 我们创建的类，既可以当作一个类来使用（使用new关键字），也可以作为一个类型来使用（约束某个变量的类型）
+function getPoint(p: Point) {
+    console.log('x = ', p.x, 'y = ', p.y);
+}
+
+getPoint({x: 10, y: 55});
+
+// 我们在创建Point类时，同时也创建了一个名为 Point 的类型（实例的类型），用来约束实例的类型的
+// 等价于下面的代码：新声明的 PointInstanceType 类型，与声明 class Point 时创建的 Point 类型是等价的。
+interface PointInstanceType {
+    x: number,
+    y: number,
+}
+
+function printPoint(p: PointInstanceType) {
+    console.log('x = ', p.x, 'y = ', p.y);
+}
+
+printPoint({x: 47, y: 99});
+
+// 当我们声明interface NewPoint3D extends Point3D时，实际上，NewPoint3D继承的时Point的实例类型
+// 等价于interface NewPoint3D extends PointInstanceType
+// NewPoint3D继承的是接口PointInstanceType
+// 所以「接口继承类」和「接口继承接口」没有什么本质的区别
+interface NewPoint3D extends Point {
+    z: number,
+}
+
+/**
+ *
+ * 声明 Point 类时创建的 Point 类型只包含其中的实例属性和实例方法
+ * 也就是说，PointInstanceType没有构造方法，静态属性，静态方法
+ * 其实也很好理解，因为PointInstanceType时用来约束变量的，也就是实例，实例时没有静态属性和静态方法的
+ * 所以PointInstanceType没有构造方法，静态属性，静态方法，只有实例属性和实例方法
+ * 同理，接口在继承类的时候，也是只能继承实例属性和实例方法
+ *
+ */
+class NewPoint {
+    // 静态属性，坐标原点
+    static origin = new NewPoint(0, 0);
+    // 实例属性
+    x: number;
+    y: number;
+
+    /**
+     * 定义一个静态方法，用来计算任意一点到坐标原点的距离
+     * @param p
+     */
+    static getDistance(p: NewPoint): number {
+        return Math.sqrt(p.x * p.x + p.y * p.y);
+    }
+    // 构造方法
+    constructor(x: number, y: number) {
+        this.x = x;
+        this.y = y;
+    }
+
+    /**
+     * 定义一个实例方法，用来打印x和y
+     */
+    printPoint() {
+        console.log('x = ', this.x, 'y = ', this.y);
+    }
+
+}
+
+interface NewPointInstanceType {
+    x: number;
+    y: number;
+    printPoint(): void;
+}
+
+// 类型NewPoint和类型NewPointInstanceType时等价的
+let ps1: NewPoint;
+let ps2: NewPointInstanceType;
+ps1 = {
+    x: 10,
+    y: 101,
+    printPoint() {
+        console.log(`ps1 x = ${this.x}, ps1 y = ${this.y}`);
+    }
+}
+
+ps2 = {
+    x: 101,
+    y: 202,
+    printPoint() {
+        console.log(`ps2 x = ${this.x}, ps2 y = ${this.y}`);
+    }
+}
+
+console.log(ps1.x);
+console.log(ps1.y);
+ps1.printPoint();
+
+console.log(ps2.x);
+console.log(ps2.y);
+ps2.printPoint();
