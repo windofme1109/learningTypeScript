@@ -76,7 +76,7 @@ class School {
 
 }
 //
-// // setter和getter的用法
+// setter和getter的用法
 let sch = new School('SSF');
 console.log(sch.name);
 

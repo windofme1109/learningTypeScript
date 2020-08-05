@@ -84,7 +84,7 @@ var School = /** @class */ (function () {
     return School;
 }());
 //
-// // setter和getter的用法
+// setter和getter的用法
 var sch = new School('SSF');
 console.log(sch.name);
 sch.name = 'BUPT';
