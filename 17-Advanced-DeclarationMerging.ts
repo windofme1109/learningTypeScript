@@ -53,6 +53,7 @@ console.log(alarm);
 // 接口中，函数的合并与函数重载相同
 interface Light {
     size: number;
+    // 定义一个函数需要的形状（输入类型，返回值类型），形式如下所示
     alert(x: string): string;
 
 }
